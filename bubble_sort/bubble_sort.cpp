@@ -1,5 +1,15 @@
 #include <iostream>
 
+/*
+* BUBBLE SORT
+* Compare successive elements until sorted
+* 
+* 1. Stable
+* 2. In-place
+* 3. Can be made adaptive.
+* 4. Runtime: O(n^2), big-omega(n) (adaptive variant, when already sorted.)
+*/
+
 void BubbleSort1(int* arr, int n)
 {
 	for (int i = 0; i < n - 1; ++i)
