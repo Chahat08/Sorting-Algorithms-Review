@@ -8,7 +8,7 @@
 *	DISADVANTAGES:
 *		1. Not Stable
 *		2. Runtime O(n^2)
-*		3. The amount of order already present in the list has no effect on runtime
+*		3. The amount of order already present in the list has no effect on runtime (NOT ADAPTIVE)
 *		( a sorted or almost sorted list will have about the same runtime as a non sorted one)
 * 
 *	ADVANTAGES:
