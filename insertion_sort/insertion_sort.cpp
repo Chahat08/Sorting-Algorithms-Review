@@ -3,6 +3,11 @@
 /*
 * BASIC INSERTION SORT
 * Take a given element and insert it into its position in the sorted array.
+* 
+* 1. Stable
+* 2. In-place
+* 3. Can be made adaptive
+* 4. Runtime: O(n^2), big-omega(n) (adaptive variant, if already sorted)
 */
 
 void InsertionSort1(int* arr, int n)
