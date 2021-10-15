@@ -3,6 +3,8 @@
 
 /*
 * SELECTION SORT
+* Simply select the largest element in the array and move it to the end of the unsorted portion.
+* 
 *	DISADVANTAGES:
 *		1. Not Stable
 *		2. Runtime O(n^2)
