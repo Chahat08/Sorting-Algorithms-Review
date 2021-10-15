@@ -7,6 +7,10 @@ void BubbleSort1(int* arr, int n)
 			if (arr[j] < arr[i]) 
 				std::swap(arr[i], arr[j]);
 }
+/*
+* ADAPTIVE BUBBLE SORT:
+* Can early break if already sorted. 
+*/
 void BubbleSort(int* arr, int n)
 {
 	bool swapped;
