@@ -54,6 +54,30 @@ void InsertionSort3(int* arr, int n)
 			else break;
 		}
 }
+/*
+* EVEN FURTHER IMPROVEMENTS
+*  3. Swapping can be somewhat inefficient, especially when done successively, 
+*	  so we can modify our code to avoid it altogether.
+*/
+void InsertionSort4(int* arr, int n)
+{
+	int min = 0, v;
+	for (int i = 1; i < n; ++i) if (arr[i] < arr[min]) min = i;
+	std::swap(arr[0], arr[min]);
+
+	for (int i = 1, j; i < n; ++i)
+	{
+		v = arr[i];
+		for (j = i; ; --j)
+		{
+			if (v < arr[j - 1])
+				arr[j] = arr[j - 1];
+			else
+				break;
+		}
+		arr[j] = v;
+	}
+}
 
 int main(int argc, char* argv[])
 {
@@ -61,6 +85,7 @@ int main(int argc, char* argv[])
 	for (int i = 0; i < n; ++i) std::cin >> arr[i];
 	//InsertionSort1(arr, n);
 	//InsertionSort2(arr, n);
-	InsertionSort3(arr, n);
+	//InsertionSort3(arr, n);
+	InsertionSort4(arr, n);
 	for (int i = 0; i < n; ++i) std::cout << arr[i] << " ";
 }
