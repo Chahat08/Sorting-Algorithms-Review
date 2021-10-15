@@ -30,12 +30,37 @@ void InsertionSort2(int* arr, int n)
 			else break;
 		}
 }
+/*
+* FURTHER IMPROVEMENTS
+*  2. The condition j > 0 is checked in every iteration of the inner loop, but it actually matters only when the
+*	  element under consideration is the smallest element so far. (since we are now early breaking)
+*     
+*	  To get rid of this statement, use a SENTINEL. Simply insert an INT_MIN to front, or better,
+*	  just make a single pass and find the smallest element and swap it with the first element.	
+* 
+*	Not a major improvement since we are still making a pass through the entire array, while doing comparisons.
+*/
+void InsertionSort3(int* arr, int n)
+{
+	int min = 0;
+	for (int i = 1; i < n; ++i) if (arr[i] < arr[min]) min = i;
+	std::swap(arr[0], arr[min]);
+
+	for (int i = 1; i < n; ++i)
+		for (int j = i; ; --j)
+		{
+			if (arr[j] < arr[j - 1])
+				std::swap(arr[j], arr[j - 1]);
+			else break;
+		}
+}
 
 int main(int argc, char* argv[])
 {
 	int n = atoi(argv[1]), * arr = new int[n];
 	for (int i = 0; i < n; ++i) std::cin >> arr[i];
 	//InsertionSort1(arr, n);
-	InsertionSort2(arr, n);
+	//InsertionSort2(arr, n);
+	InsertionSort3(arr, n);
 	for (int i = 0; i < n; ++i) std::cout << arr[i] << " ";
 }
