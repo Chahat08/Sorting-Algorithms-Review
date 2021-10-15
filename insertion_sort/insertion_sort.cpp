@@ -15,7 +15,8 @@ void InsertionSort1(int* arr, int n)
 
 /*
 * IMPROVEMENTS OVER BASIC ALGORITHM
-* Once the element under consideration is put into its position in the sorted portion, there is no need to continue, so break
+*  1. Once the element under consideration is put into its position in the sorted portion, 
+*     there is no need to continue, so break
 */
 void InsertionSort2(int* arr, int n)
 {
