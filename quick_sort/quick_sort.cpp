@@ -17,7 +17,7 @@ PROPERTIES:
 */
 
 
-int partition(int* arr, int l, int r)
+int partition1(int* arr, int l, int r)
 {
 	int v = arr[r];  // take rightmost as pivot
 	int i = l - 1, j = r;
@@ -36,10 +36,29 @@ int partition(int* arr, int l, int r)
 	std::swap(arr[i], arr[r]); // put pivot into position
 	return i;
 }
+
+int partition2(int* arr, int l, int r)
+{
+	// another way to partition
+	int v = arr[r], p = l; // last element as pivot
+
+	// p will point to the partition index
+	for (int i = l; i < r; ++i)
+	{
+		if (arr[i] <= v)
+		{
+			std::swap(arr[i], arr[p]);
+			++p;
+		}
+	}
+	std::swap(arr[p], arr[r]);
+	return p;
+}
+
 void QuickSort(int* arr, int l, int r)
 {
 	if (l >= r) return;
-	int i = partition(arr, l, r);
+	int i = partition2(arr, l, r);
 	QuickSort(arr, l, i-1);
 	QuickSort(arr, i+1, r);
 }
