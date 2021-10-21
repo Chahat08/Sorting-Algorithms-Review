@@ -15,10 +15,16 @@ Do this till only one element remains in the heap.
 
 Kinda like selection sort in that the current largest element is sorted each iteration.
 ( sorted and unsorted portions are maintained in both )
+
+PROPERTIES:
+1. Inplace
+2. Not stable
+3. Runtime: O(n log n)
 */
 
 void build_max_heap(vector<int>& v)
 {
+	// O(n log n)
 	for (int idx = 0; idx < v.size(); ++idx)
 	{
 		for (int i = idx, j = (i - 1) / 2; j >= 0; i = j, j = (i - 1) / 2)
@@ -34,12 +40,14 @@ void heap_sort(vector<int>& v)
 	build_max_heap(v);
 	// create a max heap, so the first element is the largest
 
+	// Total runtime: O(n log N)
 	for (int j = v.size() - 1; j > 0 ; ) // j is the end of the sorted portion
 	{
 		// swap the first element with the last, now last = largest
 		swap(v[0], v[j--]);
 
 		// now insert the element which was swapped with largest (curr idx = 0) into the heap
+		// O(log n)
 		for (int i = 0; 2 * i + 1 < j;)
 		{
 			if (v[i] >= v[2 * i + 1] && v[i] >= v[2 * i + 2]) break;
